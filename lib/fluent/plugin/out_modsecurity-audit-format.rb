@@ -1,4 +1,3 @@
-
 # if you want to get GeoIP info
 # against the X-Forwarded-For: header
 # uncomment the require below and @see https://github.com/da4nik/geoip2
@@ -10,7 +9,8 @@
 # Example Modsecurity output plugin for 
 # parsing a modsecurity audit log entries
 # @see https://github.com/SpiderLabs/ModSecurity/wiki/ModSecurity-2-Data-Formats
-#
+# @see http://bitsofinfo.wordpress.com/2013/11/11/modsecurity-audit-logs-fluentd/
+# @author bitsofinfo.g [ a t ] gmail.com
 ############################################
 class ModsecurityAuditFormat < Fluent::Output
   Fluent::Plugin.register_output('modsecurity-audit-format', self)
