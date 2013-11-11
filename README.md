@@ -10,7 +10,7 @@ structured object that can then be forwarded on to another output.
 This depends on the tail_multiline Fluentd input plugin located 
 at https://github.com/tomohisaota/fluent-plugin-tail-multiline
 
-More info: http://bitsofinfo.wordpress.com/2013/11/11/modsecurity-audit-logs-fluentd/
+More info and example output: http://bitsofinfo.wordpress.com/2013/11/11/modsecurity-audit-logs-fluentd/
 
 To install this output filter plugin:
 
