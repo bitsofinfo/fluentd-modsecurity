@@ -85,7 +85,10 @@ class ModsecurityAuditFormat < Fluent::Output
          
          if !sectionName.nil? and sectionName != '' and sectionName != 'null' and sectionName != ' ' 
            sectionName = sectionName.strip 
-           sectionData = sectionData.strip
+
+           if !sectionData.nil?
+           	  sectionData = sectionData.strip
+           end
            
            rawSections[sectionName] = sectionData 
          end
