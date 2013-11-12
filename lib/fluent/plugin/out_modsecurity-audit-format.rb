@@ -119,6 +119,9 @@ class ModsecurityAuditFormat < Fluent::Output
   end   
   
   def processSectionA(section) 
+     if section.nil?
+        return Hash.new
+     end
      matchData = section.match(/\[(?<modsec_timestamp>.+)\]\s(?<uniqueId>.+)\s(?<sourceIp>.+)\s(?<sourcePort>.+)\s(?<destIp>.+)\s(?<destPort>.+)/)
      hash = Hash[matchData.names.zip(matchData.captures)]
      return hash
