@@ -1,7 +1,5 @@
-# if you want to get GeoIP info
-# against the X-Forwarded-For: header
-# uncomment the require below and @see https://github.com/da4nik/geoip2
-#require 'GeoIP2'
+# @see https://github.com/mtodd/geoip
+require 'geoip'
 
 
 #############################################
@@ -20,6 +18,7 @@ class ModsecurityAuditFormat < Fluent::Output
   def configure(conf)
     super
     @tag = conf['tag']
+    @geoip = GeoIP::City.new(conf['geoipDBFilePath'])
   end
 
    # Convert the raw message and re-emit
@@ -156,11 +155,8 @@ class ModsecurityAuditFormat < Fluent::Output
           hash = hash.merge(Hash[matchData.names.zip(matchData.captures)]) 
           
                
-          # if you want to get GeoIP info
-          # against the X-Forwarded-For: header
-          # uncomment this and @see https://github.com/da4nik/geoip2
-          #geoip = GeoIP2::locate('/path/to/GeoLite2-City.mmdb', hash['XForwardedFor'], 'en')
-          #hash['XForwardedFor-GEOIP'] = geoip
+          # grab real geoip info
+          hash['XForwardedFor-GEOIP'] = @geoip.look_up(hash['XForwardedFor'])
           
        end 
        
