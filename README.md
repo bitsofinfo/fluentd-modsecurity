@@ -45,6 +45,7 @@ Your fluent.conf should look like this:
 # (2) Massage it via this plugin to a more structured object
 <match raw-modsec>
   type modsecurity-audit-format
+  geoipDBFilePath /path/to/GeoLiteCity.dat
   tag modsec-formatted
 </match>
 
