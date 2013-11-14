@@ -20,6 +20,8 @@ More info and example output: http://bitsofinfo.wordpress.com/2013/11/11/modsecu
 
 To install this output filter plugin:
 
+Install geoip support instructions here: https://github.com/mtodd/geoip
+
 ```
 gem build fluent-plugin-modsecurity.gemspec
 fluent-gem install ./fluent-plugin-modsecurity-0.1.gem
