@@ -25,7 +25,7 @@ class ModsecurityAuditFormat < Fluent::Output
    def emit(tag, es, chain)
     es.each do |time,record|
       modsecRecord = convertToModsecRecord(record['message'])
-      Fluent::Engine.emit(@tag, time, modsecRecord)
+      router.emit(@tag, time, modsecRecord)
       chain.next
     end
    end
